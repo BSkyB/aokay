@@ -12,38 +12,33 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-    $ bundle
+    bundle
 
 Or install it yourself as:
 
-    $ gem install aokay
+    gem install aokay
 
 Usage
 -----
 
 aokay allows you to make assertions on which variables or events are being sent to Omniture. aokay exposes simple methods such as `page_should_be_tracked_in_omniture page_name` which can be added to your tests.
 
-### Basic
-
-  aokay = aokay.new()
-  aokay.page_should_be_tracked_in_omniture page_name
-
 ### Cucumber
 
 To use with Cucumber, require the following file, which exposes aokay as a Cucumber mixin.
 
-require 'okay/cucumber'
+    require 'okay/cucumber'
 
 A step definition could look like the following:
 
-  Then(/^page '(.+)' should be tracked in Omniture$/) do |page_name|
-    page_should_be_tracked_in_omniture page_name
-  end
+    Then(/^page '(.+)' should be tracked in Omniture$/) do |page_name|
+      page_should_be_tracked_in_omniture page_name
+    end
 
 And the corresponding scenario:
 
-  Scenario: Customer creates a TV case
-    Then page 'cases/new' should be tracked in Omniture`
+    Scenario: Customer creates a TV case
+      Then page 'cases/new' should be tracked in Omniture`
 
 Dependencies
 ------------
