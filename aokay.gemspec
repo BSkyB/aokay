@@ -6,12 +6,12 @@ require 'aokay/version'
 Gem::Specification.new do |spec|
   spec.name          = "aokay"
   spec.version       = Aokay::VERSION
-  spec.authors       = ["Richard Dowden & Robert Mackenzie"]
-  spec.email         = ["pair+daffydowden+robertmackenzie@bksyb.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.authors       = ["Haiku team"]
+  spec.email         = ["skyhaikuteam@gmail.com"]
+  spec.summary       = %q{ Helps you to write tests which verify Omniture requests are made correctly. }
+  spec.description   = %q{ Helps you to write tests which verify Omniture requests are made correctly. } 
   spec.homepage      = ""
-  spec.license       = "MIT"
+  spec.license       = "NA"
 
   spec.files         = `git ls-files -z`.split("\x0")
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
