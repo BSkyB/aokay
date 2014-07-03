@@ -1,7 +1,7 @@
 module Aokay
-  class Omniture < BasicTracker
+  class OmnitureRequests < BasicTracker
 
-    def self.page_should_be_tracked expected
+    def page_should_be_tracked expected
       eventually do 
         Omniture.all.last.tracked_page_url.should include expected
       end

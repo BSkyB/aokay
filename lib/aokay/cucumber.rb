@@ -1,7 +1,7 @@
 require 'cucumber'
 require 'aokay'
 
-Aokay.register_drivers
+#Aokay.register_drivers
 
 World(Aokay)
 

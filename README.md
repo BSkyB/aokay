@@ -37,6 +37,7 @@ A step definition could look like the following:
 
 And the corresponding scenario:
 
+    @aokay
     Scenario: Customer creates a TV case
       Then page 'cases/new' should be tracked in Omniture`
 

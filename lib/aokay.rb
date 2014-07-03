@@ -1,17 +1,12 @@
 require "aokay/version"
+require "addressable/uri"
+require "aokay/trackers/basic_tracker"
 
 module Aokay
 
   def page_should_be_tracked_in_omniture expected
-    Omniture.page_should_be_tracked expected
+    omniture = OmnitureRequests.new(page.driver.network_traffic)
+    omniture.page_should_be_tracked expected
   end
-
-  #def page_should_be_tracked_in_google expected
-    #GoogleAnalyticsRequest.page_should_be_tracked expected
-  #end
-
-  #def page_should_be_tracked_by_abba expected
-    #AbbaRequest.page_should_be_tracked expected
-  #end
 
 end
