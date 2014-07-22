@@ -3,14 +3,14 @@ module Aokay
 
     def page_should_be_tracked expected
       eventually do 
-        Omniture.all.last.tracked_page_url.should include expected
+        SiteCatRequest.all.last.tracked_page_url.should include expected
       end
     end
 
     private #-------------------------------------------------------->
 
     def self.all
-      find_requests(/metrics.sky.com/).map {|req| Omniture.new(req.url)}
+      find_requests(/metrics.sky.com/).map {|req| SiteCatRequest.new(req.url)}
     end
 
     def page_should_be_tracked_in_omniture expected
