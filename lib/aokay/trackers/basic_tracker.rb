@@ -1,4 +1,8 @@
+
+
 module Aokay
+
+
   class BasicTracker
 
     attr_accessor :req
@@ -7,8 +11,8 @@ module Aokay
       @req = Addressable::URI.parse req
     end
 
-    def find_requests regex
-      page.driver.network_traffic.find_all{|req| req.url =~ regex }
+    def self.find_requests regex
+      Capybara.page.driver.network_traffic.find_all{|req| req.url =~ regex }
     end
 
   end
