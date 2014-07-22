@@ -1,9 +1,6 @@
-
-
 module Aokay
 
-
-  class BasicTracker
+  class BaseRequest
 
     attr_accessor :req
 
@@ -13,6 +10,10 @@ module Aokay
 
     def self.find_requests regex
       Capybara.page.driver.network_traffic.find_all{|req| req.url =~ regex }
+    end
+
+    def tracked key
+      @req.query_values[field_ref[key]]
     end
 
   end

@@ -1,5 +1,5 @@
 module Aokay
-  class OmnitureRequests < BasicTracker
+  class SiteCatRequest < BaseRequest
 
     def page_should_be_tracked expected
       eventually do 

@@ -1,8 +1,8 @@
+require 'pry'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'support/blank_rack'
 require 'aokay'
-require 'pry'
 
 
 Capybara.default_driver = :poltergeist
