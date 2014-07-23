@@ -2,12 +2,16 @@ module Aokay::SiteCatHelpers
 
   extend RSpec::Matchers
 
-  RSpec::Matchers.define :be_tracked do |expected|
-    match do |actual|
-      Aokay::SiteCatRequest.all.last.page_url.include? actual
+  RSpec::Matchers.define :be_tracked do 
+    match do |expected|
+      Aokay::SiteCatRequest.all.last.page_url == expected
     end
-  end 
 
+    failure_message do |expected|
+      "got #{Aokay::SiteCatRequest.all.last.page_url}"
+    end
+
+  end 
 end
 
 
