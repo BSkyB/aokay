@@ -9,3 +9,12 @@ Capybara.app = BlankRack.new
 
 RSpec.configure do |config|
 end
+
+def make_ajax_req url
+  script = <<-JAVASCRIPT
+var oReq = new XMLHttpRequest();
+oReq.open("get", "#{url}", true);
+oReq.send();
+JAVASCRIPT
+  page.driver.execute_script script
+end

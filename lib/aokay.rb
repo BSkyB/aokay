@@ -2,7 +2,9 @@ require "aokay/version"
 require 'aokay/trackers/base_request'
 require 'aokay/trackers/google_analytics_request'
 require 'aokay/trackers/sitecat_request'
+require 'aokay/helpers/base_helpers'
 require 'aokay/helpers/sitecat_helpers'
+require 'aokay/helpers/google_analytics_helpers'
 require 'wrong'
 
 require "addressable/uri"
