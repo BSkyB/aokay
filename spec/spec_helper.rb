@@ -4,7 +4,6 @@ require 'capybara/poltergeist'
 require 'support/blank_rack'
 require 'aokay'
 
-
 Capybara.default_driver = :poltergeist
 Capybara.app = BlankRack.new
 
