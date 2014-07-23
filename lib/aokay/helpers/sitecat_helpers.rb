@@ -2,37 +2,34 @@ module Aokay::SiteCatHelpers
 
   extend RSpec::Matchers
 
-  RSpec::Matchers.define :be_tracked do 
+  RSpec::Matchers.define :be_tracked_as do |type| 
     match do |expected|
-      Aokay::SiteCatRequest.all.last.page_url == expected
+      @last_request = Aokay::SiteCatRequest.all.last
+      raise "No requests made" unless @last_request
+      @last_request[type] == expected
     end
 
     failure_message do |expected|
-      "got #{Aokay::SiteCatRequest.all.last.page_url}"
+      "got #{@last_request[type]}"
     end
-
   end 
+
+  #RSpec::Matchers.define :be_tracked_once_as do |type| 
+    #match do |expected|
+      ##Aokay::SiteCatRequest.all.last[type] == expected
+      ##
+      #Aokay::SiteCatRequest.all.select{ |request| 
+        #request.tracked(value).include? expected if request.tracked(value)
+      #}.count eq(1)
+    #end
+
+    #failure_message do |expected|
+      #"got #{Aokay::SiteCatRequest.all.last[type]}"
+    #end
+  #end 
 end
-
-
-    #def page_should_be_tracked expected
-      #eventually do 
-        #SiteCatRequest.all.last.tracked_page_url.should include expected
-      #end
-    #end
-
-    #def page_should_be_tracked_in_omniture expected
-      #eventually do 
-        #omniture_analytics_requests.last.tracked_page_url.should include expected
-      #end
-    #end
 
     #def customer_group_should_be_tracked_in_omniture expected
       #omniture_analytics_requests.last.tracked_customer_group.should include expected
     #end
 
-    #def tracked_once_in_omniture(value, expected)
-      #omniture_analytics_requests.select{ |request| 
-        #request.tracked(value).include? expected if request.tracked(value)
-      #}.count.should == 1
-    #end

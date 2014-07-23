@@ -1,8 +1,6 @@
 module Aokay
   class SiteCatRequest < BaseRequest
 
-
-
     def self.all
       find_requests(/metrics.sky.com/).map {|req| SiteCatRequest.new(req.url)}
     end
@@ -21,6 +19,7 @@ module Aokay
         :pageName => 'pageName',
         :event => 'events',
         :url => 'c9',
+        :page => 'c9',
         :link_tracking => 'c15',
         :click_event => 'event6',
         :sub_section_1 => 'c25',
@@ -38,7 +37,6 @@ module Aokay
     def page_url
       tracked :url
     end
-
 
   end
 end
