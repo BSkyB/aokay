@@ -14,19 +14,19 @@ module Aokay::SiteCatHelpers
     end
   end 
 
-  #RSpec::Matchers.define :be_tracked_once_as do |type| 
-    #match do |expected|
-      ##Aokay::SiteCatRequest.all.last[type] == expected
-      ##
-      #Aokay::SiteCatRequest.all.select{ |request| 
-        #request.tracked(value).include? expected if request.tracked(value)
-      #}.count eq(1)
-    #end
+  RSpec::Matchers.define :be_tracked_once_as do |type| 
+    match do |expected|
+      #Aokay::SiteCatRequest.all.last[type] == expected
+      #
+      Aokay::SiteCatRequest.all.select{ |request| 
+        request.tracked(value).include? expected if request.tracked(value)
+      }.count eq(1)
+    end
 
-    #failure_message do |expected|
-      #"got #{Aokay::SiteCatRequest.all.last[type]}"
-    #end
-  #end 
+    failure_message do |expected|
+      "got #{Aokay::SiteCatRequest.all.last[type]}"
+    end
+  end 
 end
 
     #def customer_group_should_be_tracked_in_omniture expected

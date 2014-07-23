@@ -20,5 +20,11 @@ describe Aokay::SiteCatHelpers, type: :feature do
       make_ajax_req "http://metrics.sky.com/?c9=https%3A%2F%2Fsky.com%2Ftesting"
       expect {expect('https://sky.com/testing/something').to be_tracked_as :page}.to raise_error
     end
+
+    it "should return true if a page has only been tracked once" do
+      visit '/'
+      make_ajax_req "http://metrics.sky.com/?c9=https%3A%2F%2Fsky.com%2Ftesting"
+      expect('https://sky.com/testing').to be_tracked_once_as :page
+    end
   end
 end
