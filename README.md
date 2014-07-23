@@ -25,6 +25,15 @@ Usage
 
 aokay allows you to make assertions on which variables or events are being sent to Omniture. aokay exposes simple methods such as `page_should_be_tracked_in_omniture page_name` which can be added to your tests.
 
+### RSpec Expectations
+
+You can use RSpec Expectations within RSpec specs or Cucumber step definitions.
+
+To check page tracking in Adobe SiteCatalyst:
+
+`expect('https://sky.com/testing').to be_tracked_as :url`
+
+
 ### Cucumber
 
 To use with Cucumber, require the following file, which exposes aokay as a Cucumber mixin.
