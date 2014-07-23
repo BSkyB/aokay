@@ -16,15 +16,14 @@ module Aokay::SiteCatHelpers
 
   RSpec::Matchers.define :be_tracked_once_as do |type| 
     match do |expected|
-      #Aokay::SiteCatRequest.all.last[type] == expected
-      #
-      Aokay::SiteCatRequest.all.select{ |request| 
-        request.tracked(value).include? expected if request.tracked(value)
-      }.count eq(1)
+      @count = Aokay::SiteCatRequest.all.select{ |request| 
+        request[type].include?(expected) unless request[type].nil?
+      }.count
+     @count == 1
     end
 
     failure_message do |expected|
-      "got #{Aokay::SiteCatRequest.all.last[type]}"
+      "Expecting #{expected} #{name_to_sentence}. Saw #{@count} requests"
     end
   end 
 end
