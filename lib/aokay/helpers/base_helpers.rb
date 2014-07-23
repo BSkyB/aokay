@@ -6,7 +6,7 @@ module Aokay::BaseHelpers
     match do |expected|
       @last_request = request_class.all.last
       raise "No requests made" unless @last_request
-      @last_request[type] == expected
+      @last_request[type] =~ /#{expected}$/
     end
 
     failure_message do |expected|
@@ -17,7 +17,7 @@ module Aokay::BaseHelpers
   RSpec::Matchers.define :be_tracked_once_as do |type| 
     match do |expected|
       @count = request_class.all.select{ |request| 
-        request[type].include?(expected) unless request[type].nil?
+        request[type] =~ /#{expected}$/ unless request[type].nil?
       }.count
      @count == 1
     end
