@@ -1,5 +1,5 @@
 module Aokay
-  class SiteCatRequest < BaseRequest
+  class SitecatRequest < BaseRequest
 
     def matches? 
      host == "metrics.sky.com" 
