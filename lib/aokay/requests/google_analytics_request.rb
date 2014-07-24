@@ -8,8 +8,8 @@ module Aokay
       }
     end
 
-    def self.all
-      BaseRequest.find_requests(/google-analytics.com\/collect/).map {|req| GoogleAnalyticsRequest.new(req.url)}
+    def matches? 
+      host == "google-analytics.com"
     end
 
     def page_should_be_tracked expected

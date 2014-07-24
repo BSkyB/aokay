@@ -1,8 +1,8 @@
 module Aokay
   class SiteCatRequest < BaseRequest
 
-    def self.all
-      find_requests(/metrics.sky.com/).map {|req| SiteCatRequest.new(req.url)}
+    def matches? 
+     host == "metrics.sky.com" 
     end
 
 
