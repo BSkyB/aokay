@@ -46,7 +46,7 @@ aokay allows you to make assertions on which variables or events are being sent 
 
 To check page tracking in Adobe SiteCatalyst:
 
-`expect('https://sky.com/testing').to be_tracked_as :url`
+`expect(last_sitecat_request[:page]).to end_with "/requests/new"`
 
 To check the custom variable 'ab_group', which is set to eVar18 in our omniture
 config. Use the following: 
