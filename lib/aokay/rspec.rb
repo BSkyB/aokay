@@ -3,15 +3,10 @@ RSpec.configure do |config|
 
   config.add_setting :aokay_sitecat_refs
 
-  binding.pry
-  
-  @refs = config.aokay_sitecat_refs
-
   module Aokay
     class SitecatRequest < BaseRequest
       def field_ref
-        #{ :yo => 't' }
-        @refs
+        RSpec.configuration.aokay_sitecat_refs
       end
     end
   end
