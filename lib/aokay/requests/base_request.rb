@@ -10,7 +10,6 @@ module Aokay
     end
 
     class << self
-
       def network_traffic
         Capybara.page.driver.network_traffic
       end
@@ -26,8 +25,6 @@ module Aokay
       def last
         all.last
       end
-
-
     end
 
     def matches? 
@@ -42,11 +39,13 @@ module Aokay
       tracked key
     end
 
-    def tracked key
-      @parsed_url.query_values[field_ref[key]]
+    #def tracked key
+      #params[field_ref[key]]
+    #end
+
+    def params
+      @parsed_url.query_values
     end
-
-
 
     def hostname
       req.hostname
