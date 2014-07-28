@@ -23,34 +23,35 @@ Or install it yourself as:
 Usage
 -----
 
-aokay allows you to make assertions on which variables or events are being sent to Omniture. aokay exposes simple methods such as `page_should_be_tracked_in_omniture page_name` which can be added to your tests.
+aokay allows you to make assertions on which variables or events are being sent to Omniture. 
 
-### RSpec Expectations
+### RSpec
 
-You can use RSpec Expectations within RSpec specs or Cucumber step definitions.
+#### In spec helper file:
+
+    require 'aokay'
+    RSpec.configure do |config|
+
+      config.aokay_sitecat_refs =
+        {
+            :ab_group => 'v18',
+            :section => 'c27',
+            :contentType => 'c20',
+            :pageName => 'pageName',
+            :event => 'events',
+        }
+    end
+
+#### Within your specs
 
 To check page tracking in Adobe SiteCatalyst:
 
 `expect('https://sky.com/testing').to be_tracked_as :url`
 
+To check the custom variable 'ab_group', which is set to eVar18 in our omniture
+config. Use the following: 
 
-### Cucumber
-
-To use with Cucumber, require the following file, which exposes aokay as a Cucumber mixin.
-
-    require 'okay/cucumber'
-
-A step definition could look like the following:
-
-    Then(/^page '(.+)' should be tracked in Omniture$/) do |page_name|
-      page_should_be_tracked_in_omniture page_name
-    end
-
-And the corresponding scenario:
-
-    @aokay
-    Scenario: Customer creates a TV case
-      Then page 'cases/new' should be tracked in Omniture`
+`expect(last_sitecat_request[:ab_group]).to eq "testGroupAlpha"`
 
 Dependencies
 ------------
