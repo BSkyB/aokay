@@ -34,15 +34,29 @@ aokay allows you to make assertions on which variables or events are being sent 
 
       config.aokay_sitecat_refs =
         {
-            :ab_group => 'v18',
-            :section => 'c27',
-            :contentType => 'c20',
-            :pageName => 'pageName',
-            :event => 'events',
+          :ab_group => 'v18',
+          :section => 'c27',
+          :contentType => 'c20',
+          :pageName => 'pageName',
+          :event => 'events'
         }
     end
 
-#### Within your specs
+### Cucumber
+
+In `features/support/env.rb`, require the gem and setup the field_refs
+
+    require 'aokay/cucumber'
+
+    Aokay::Configuration.field_ref = { 
+      :ab_group => 'v18',
+      :section => 'c27',
+      :contentType => 'c20',
+      :pageName => 'pageName',
+      :event => 'events'
+    }
+
+### Within your specs
 
 To check page tracking in Adobe SiteCatalyst:
 
@@ -56,6 +70,9 @@ config. Use the following:
 The same can also be used for your Google Analytics tests
 
 `expect(last_google_analytics_request[:url]).to end_with(this_page)`
+
+
+
 
 Dependencies
 ------------

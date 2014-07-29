@@ -1,9 +1,26 @@
 require 'cucumber'
 require 'aokay'
 
-#Aokay.register_drivers
+module Aokay
+  class Configuration
+    def self.field_ref=(value)
+      @field_ref = value 
+    end
+
+    def self.field_ref
+      @field_ref
+    end
+  end
+
+  class SitecatRequest < BaseRequest
+    def field_ref
+      Aokay::Configuration.field_ref
+    end
+  end
+end
 
 World(Aokay)
+World(Aokay::Helpers)
 
 After('@aokay') do
   # Clear out network traffic?

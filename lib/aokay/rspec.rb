@@ -1,3 +1,5 @@
+require 'aokay'
+
 RSpec.configure do |config|
   config.include(Aokay::Helpers)
 
