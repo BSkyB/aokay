@@ -53,6 +53,10 @@ config. Use the following:
 
 `expect(last_sitecat_request[:ab_group]).to eq "testGroupAlpha"`
 
+The same can also be used for your Google Analytics tests
+
+`expect(last_google_analytics_request[:url]).to end_with(this_page)`
+
 Dependencies
 ------------
 

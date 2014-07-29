@@ -9,7 +9,7 @@ module Aokay
     end
 
     def matches? 
-      host == "google-analytics.com"
+      !!(host =~ /google-analytics\.com/)
     end
 
     def page_should_be_tracked expected

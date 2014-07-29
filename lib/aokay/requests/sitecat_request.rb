@@ -2,7 +2,7 @@ module Aokay
   class SitecatRequest < BaseRequest
 
     def matches? 
-     host == "metrics.sky.com" 
+      !!(host =~ /metrics\.sky\.com/) 
     end
 
     def track_in_omniture(value, expected)
