@@ -1,5 +1,7 @@
 describe Aokay::Helpers, type: :feature do 
 
+  include Aokay::Helpers
+
   describe "#last_sitecat_request" do
     it "should return the last sitecat request" do
       visit '/'
@@ -8,7 +10,4 @@ describe Aokay::Helpers, type: :feature do
       expect(result.host).to eql "metrics.sky.com"
     end
   end
-
-
-
 end
