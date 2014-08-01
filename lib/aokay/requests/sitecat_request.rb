@@ -13,5 +13,8 @@ module Aokay
       tracked :url
     end
 
+    def pageload?
+      tracked :event and (tracked(:event).include? 'event1')
+    end
   end
 end
