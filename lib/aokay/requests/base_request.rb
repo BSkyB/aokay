@@ -67,6 +67,7 @@ module Aokay
     end
 
     def tracked key
+      key = key.tr(' ', '_').to_sym if key.class == String
       @parsed_url.query_values[field_ref[key]]
     end
 
