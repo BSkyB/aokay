@@ -22,13 +22,24 @@ module Aokay
         unfiltered_requests.find_all {|unfiltered| unfiltered.matches? }
       end
 
+      def successful_requests
+        unfiltered_requests.find_all do |unfiltered|
+          unfiltered.matches? and unfiltered.successful?
+        end
+      end
+
       def last
         all.last
       end
     end
 
-    def matches? 
+    def matches?
       true
+    end
+
+    def successful?
+      codes = self.req.response_parts.map{|resp| resp.status}.uniq
+      codes.map!{|code| code == 200}.reduce
     end
 
     def host
