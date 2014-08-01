@@ -8,6 +8,15 @@ Capybara.default_driver = :poltergeist
 Capybara.app = BlankRack.new
 
 RSpec.configure do |config|
+  config.aokay_sitecat_refs =
+    {
+      :testVar => 'v18',
+      :testProp => 'c27',
+      :complex_name_here => 'c20',
+      :pageName => 'pageName',
+      :event => 'events',
+      :pageLoad => 'event1'
+    }
 end
 
 def make_ajax_req url
