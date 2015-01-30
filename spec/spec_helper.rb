@@ -2,12 +2,15 @@ require 'pry'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'support/blank_rack'
-require 'aokay'
+require 'aokay/rspec'
 
 Capybara.default_driver = :poltergeist
 Capybara.app = BlankRack.new
 
+
 RSpec.configure do |config|
+  config.include Capybara::DSL, :type => :feature
+
   config.aokay_sitecat_refs =
     {
       :testVar => 'v18',
