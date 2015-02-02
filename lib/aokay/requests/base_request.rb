@@ -46,14 +46,6 @@ module Aokay
       @parsed_url.host 
     end
 
-    def [] key
-      tracked key
-    end
-
-    #def tracked key
-      #params[field_ref[key]]
-    #end
-
     def params
       @parsed_url.query_values
     end

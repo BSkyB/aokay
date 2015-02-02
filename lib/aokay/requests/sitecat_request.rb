@@ -21,16 +21,18 @@ module Aokay
       @parsed_url.query_values['events'].split(',')
     end
 
+    def [] key, type=:eVar
+      tracked key, type
+    end
+
     def tracked key, type=:eVar
-      if field_ref[key].is_a? Hash
-        @parsed_url.query_values[field_ref[key][type]]
+      if field_ref[key.to_sym].is_a? Hash
+        @parsed_url.query_values[field_ref[key.to_sym][type]]
       else
-        super
+        super key
       end
     end
 
     private #----------------------------------------------
-
-
   end
 end

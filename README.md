@@ -90,8 +90,6 @@ Or with minitest
 `last_sitecat_request.tracked(:siteName, :prop).must_equal 'yourSiteName'`
 
 
-
-
 Dependencies
 ------------
 

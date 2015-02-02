@@ -1,5 +1,3 @@
-
-
 describe Aokay::GoogleAnalyticsRequest, "#find_requests", type: :feature do 
 
   it "should return an array of requests" do

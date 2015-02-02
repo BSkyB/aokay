@@ -7,6 +7,7 @@ require 'aokay/rspec'
 Capybara.default_driver = :poltergeist
 Capybara.app = BlankRack.new
 
+#include Capybara::DSL
 
 RSpec.configure do |config|
   config.include Capybara::DSL, :type => :feature
@@ -18,7 +19,9 @@ RSpec.configure do |config|
       :complex_name_here => 'c20',
       :pageName => 'pageName',
       :event => 'events',
-      :pageLoad => 'event1'
+      :pageLoad => 'event1',
+      :contentType => {prop: 'contentType',eVar: 'contentType20'},
+      :url => {prop: 'url',eVar: 'url9'}
     }
 end
 

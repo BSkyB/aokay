@@ -9,8 +9,9 @@ describe Aokay::SitecatRequest, "#find_requests", type: :feature do
     expect(result.last).to be_a_kind_of(Aokay::SitecatRequest)
   end
 
-  it "should allow lookup of variables with friendly names"
+  xit "should allow lookup of variables with friendly names" do
     visit '/'
     make_ajax_req "http://tracking.example.com"
     result = Aokay::SitecatRequest.all
+  end
 end
