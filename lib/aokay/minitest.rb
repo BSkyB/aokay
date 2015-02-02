@@ -2,12 +2,8 @@ require 'aokay'
 
 module Aokay
   class Configuration
-    def self.field_ref=(value)
-      @field_ref = value
-    end
-
-    def self.field_ref
-      @field_ref
+    class << self
+      attr_accessor :field_ref
     end
   end
 
