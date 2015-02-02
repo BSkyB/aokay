@@ -6,4 +6,3 @@ require 'aokay/helpers'
 require 'wrong'
 
 require "addressable/uri"
-

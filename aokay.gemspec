@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
 
 
   spec.add_dependency "rspec", "~> 3"
+  spec.add_dependency "wrong"
 
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "pry"
@@ -28,5 +29,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "addressable"
   spec.add_development_dependency "capybara"
   spec.add_development_dependency "poltergeist"
-  spec.add_development_dependency "wrong"
 end

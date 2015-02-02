@@ -56,6 +56,20 @@ In `features/support/env.rb`, require the gem and setup the field_refs
       :event => 'events'
     }
 
+### Minitest
+
+In your `test_helper.rb`, require the gem and setup the field_refs
+
+    require 'aokay/minitest'
+
+    Aokay::Configuration.field_ref = {
+      :ab_group => 'v18',
+      :section => 'c27',
+      :contentType => 'c20',
+      :pageName => 'pageName',
+      :event => 'events'
+    }
+
 ### Within your specs
 
 To check page tracking in Adobe SiteCatalyst:
@@ -71,7 +85,9 @@ The same can also be used for your Google Analytics tests
 
 `expect(last_google_analytics_request[:url]).to end_with(this_page)`
 
+Or with minitest
 
+`last_sitecat_request.tracked(:siteName, :prop).must_equal 'yourSiteName'`
 
 
 Dependencies
