@@ -38,7 +38,8 @@ aokay allows you to make assertions on which variables or events are being sent 
           :section => 'c27',
           :contentType => 'c20',
           :pageName => 'pageName',
-          :event => 'events'
+          :event => 'events',
+          :url => { prop: 'url', eVar: 'url' }
         }
     end
 
@@ -53,7 +54,8 @@ In `features/support/env.rb`, require the gem and setup the field_refs
       :section => 'c27',
       :contentType => 'c20',
       :pageName => 'pageName',
-      :event => 'events'
+      :event => 'events',
+      :url => { prop: 'url', eVar: 'url' }
     }
 
 ### Minitest
@@ -67,28 +69,30 @@ In your `test_helper.rb`, require the gem and setup the field_refs
       :section => 'c27',
       :contentType => 'c20',
       :pageName => 'pageName',
-      :event => 'events'
+      :event => 'events',
+      :url => { prop: 'url', eVar: 'url' }
     }
 
 ### Within your specs
 
 To check page tracking in Adobe SiteCatalyst:
 
-`expect(last_sitecat_request[:page]).to end_with "/requests/new"`
+`expect(last_sitecat_request[:page (, :prop/eVar)]).to end_with "/requests/new"`
 
 To check the custom variable 'ab_group', which is set to eVar18 in our omniture
 config. Use the following: 
 
-`expect(last_sitecat_request[:ab_group]).to eq "testGroupAlpha"`
+`expect(last_sitecat_request[:ab_group (, :prop/eVar)]).to eq "testGroupAlpha"`
 
 The same can also be used for your Google Analytics tests
 
-`expect(last_google_analytics_request[:url]).to end_with(this_page)`
+`expect(last_google_analytics_request[:url (, :prop/eVar)]).to end_with(this_page)`
 
 Or with minitest
 
-`last_sitecat_request.tracked(:siteName, :prop).must_equal 'yourSiteName'`
+`last_sitecat_request.tracked(:siteName (, :prop/eVar)).must_equal 'yourSiteName'`
 
+*Code in brackets is depending on configuration. `:event => 'events' or :url => { prop: 'url', eVar: 'url' }` etc.*
 
 Dependencies
 ------------
