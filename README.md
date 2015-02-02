@@ -10,15 +10,11 @@ Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'aokay'
+    gem 'aokay', :git => 'git@github.com:bskyb/aokay.git'
 
 And then execute:
 
     bundle
-
-Or install it yourself as:
-
-    gem install aokay
 
 Usage
 -----
