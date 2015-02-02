@@ -10,8 +10,6 @@ Capybara.app = BlankRack.new
 #include Capybara::DSL
 
 RSpec.configure do |config|
-  config.include Capybara::DSL, :type => :feature
-
   config.aokay_sitecat_refs =
     {
       :testVar => 'v18',

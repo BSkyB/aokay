@@ -29,7 +29,7 @@ aokay allows you to make assertions on which variables or events are being sent 
 
 #### In spec helper file:
 
-    require 'aokay'
+    require 'aokay/rspec'
     RSpec.configure do |config|
 
       config.aokay_sitecat_refs =

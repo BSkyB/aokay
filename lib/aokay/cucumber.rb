@@ -21,6 +21,7 @@ end
 
 World(Aokay)
 World(Aokay::Helpers)
+World(Capybara::DSL)
 
 After('@aokay') do
   # Clear out network traffic?

@@ -2,6 +2,7 @@ require 'aokay'
 
 RSpec.configure do |config|
   config.include(Aokay::Helpers)
+  config.include Capybara::DSL, :type => :feature
 
   config.add_setting :aokay_sitecat_refs
 
