@@ -10,7 +10,9 @@ Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'aokay', :git => 'git@github.com:bskyb/aokay.git'
+    gem 'aokay', :git => 'git@github.com:bskyb/aokay.git', :tag => 'vX.X.X'
+
+*Where tag is the latest release*
 
 And then execute:
 
