@@ -39,6 +39,7 @@ aokay allows you to make assertions on which variables or events are being sent 
           :event => 'events',
           :url => { prop: 'url', eVar: 'url' }
         }
+      config.aokay_sitecat_url = 'mysitecaturl.com'
     end
 
 ### Cucumber
@@ -55,6 +56,7 @@ In `features/support/env.rb`, require the gem and setup the field_refs
       :event => 'events',
       :url => { prop: 'url', eVar: 'url' }
     }
+    Aokay::Configuration.sitecat_url = 'mysitecaturl.com'
 
 ### Minitest
 
@@ -70,6 +72,7 @@ In your `test_helper.rb`, require the gem and setup the field_refs
       :event => 'events',
       :url => { prop: 'url', eVar: 'url' }
     }
+    Aokay::Configuration.sitecat_url = 'mysitecaturl.com'
 
 ### Within your specs
 
