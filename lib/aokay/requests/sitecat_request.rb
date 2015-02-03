@@ -26,10 +26,14 @@ module Aokay
     end
 
     def tracked key, type=:eVar
-      if field_ref[key.to_sym].is_a? Hash
-        @parsed_url.query_values[field_ref[key.to_sym][type]]
-      else
-        super key
+      begin
+        if field_ref[key.to_sym].is_a? Hash
+          @parsed_url.query_values[field_ref[key.to_sym][type]]
+        else
+          super key
+        end
+      rescue
+        raise "Aokay Sitecat field refs not set, please set these in your configuration"
       end
     end
 
