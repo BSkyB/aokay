@@ -2,7 +2,15 @@ module Aokay
   class SitecatRequest < BaseRequest
 
     def matches? 
-      !!(host =~ /metrics\.sky\.com/) 
+      !!(host =~ /#{escaped_sitecat_host}/) 
+    end
+
+    def escaped_sitecat_host
+      begin
+        sitecat_url.gsub(/[.:\/&?]/, '\\\\\0')
+      rescue
+        raise "Aokay Sitecat URL not set, please set this in your configuration"
+      end
     end
 
     def track_in_omniture(value, expected)

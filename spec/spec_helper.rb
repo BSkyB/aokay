@@ -7,8 +7,6 @@ require 'aokay/rspec'
 Capybara.default_driver = :poltergeist
 Capybara.app = BlankRack.new
 
-#include Capybara::DSL
-
 RSpec.configure do |config|
   config.aokay_sitecat_refs =
     {
@@ -21,6 +19,7 @@ RSpec.configure do |config|
       :contentType => {prop: 'contentType',eVar: 'contentType20'},
       :url => {prop: 'url',eVar: 'url9'}
     }
+    config.aokay_sitecat_url = 'metrics.sky.com'
 end
 
 def make_ajax_req url
