@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/BSkyB/aokay.svg?branch=master)](https://travis-ci.org/BSkyB/aokay)
+[![Coverage Status](https://coveralls.io/repos/BSkyB/aokay/badge.svg?branch=master)](https://coveralls.io/r/BSkyB/aokay?branch=master)
 
 aokay
 =====
