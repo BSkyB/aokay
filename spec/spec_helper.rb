@@ -3,6 +3,8 @@ require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'support/blank_rack'
 require 'aokay/rspec'
+require 'coveralls'
+Coveralls.wear!
 
 Capybara.default_driver = :poltergeist
 Capybara.app = BlankRack.new
