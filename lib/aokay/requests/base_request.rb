@@ -43,7 +43,7 @@ module Aokay
     end
 
     def host
-      @parsed_url.host 
+      @parsed_url.host
     end
 
     def params
@@ -59,8 +59,9 @@ module Aokay
     end
 
     def tracked key
-      key = key.tr(' ', '_').to_sym if key.class == String
-      @parsed_url.query_values[field_ref[key]]
+      key = key.tr(' ', '_').to_sym if key.is_a? String
+      field = field_ref[key]
+      params && params[field]
     end
 
   end

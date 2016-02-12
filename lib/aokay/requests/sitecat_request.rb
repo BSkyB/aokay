@@ -1,8 +1,8 @@
 module Aokay
   class SitecatRequest < BaseRequest
 
-    def matches? 
-      !!(host =~ /#{escaped_sitecat_host}/) 
+    def matches?
+      !!(host =~ /#{escaped_sitecat_host}/)
     end
 
     def escaped_sitecat_host
@@ -34,17 +34,21 @@ module Aokay
     end
 
     def tracked key, type=:eVar
+      unless field_ref
+        raise "Aokay Sitecat field refs not set, please set these in your configuration"
+      end
+
       begin
-        if field_ref[key.to_sym].is_a? Hash
-          @parsed_url.query_values[field_ref[key.to_sym][type]]
+        key_sym = key.to_sym
+        field = field_ref[key.to_sym]
+        if field.is_a? Hash
+          @parsed_url.query_values[field[type]]
         else
           super key
         end
       rescue
-        raise "Aokay Sitecat field refs not set, please set these in your configuration"
+        raise "Aokay Sitecat field #{key.inspect} not set, please set this in your configuration"
       end
     end
-
-    private #----------------------------------------------
   end
 end
