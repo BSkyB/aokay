@@ -9,6 +9,12 @@ module Aokay
       @parsed_url = Addressable::URI.parse req.url
     end
 
+    # We say that requests are equal if their parameters are equal.
+    # This is open to change.
+    def ==(other)
+      self.params == other.params
+    end
+
     class << self
       def network_traffic
         Capybara.page.driver.network_traffic
@@ -40,6 +46,17 @@ module Aokay
     def successful?
       codes = self.req.response_parts.map{|resp| resp.status}.uniq
       codes.map!{|code| code == 200}.reduce
+    end
+
+    # Here's why we need this.
+    #
+    #  When we ask for Capybara.page.driver.network_traffic, we can
+    #  ask for the traffic before the response for the last request
+    #  has been "received".  The first time you make the request, the
+    #  object you get back won't have @response_parts or @error, but
+    #  the *second* time, it will.
+    def responded?
+      self.req.response_parts.any? || self.req.error
     end
 
     def host

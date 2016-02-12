@@ -20,4 +20,18 @@ describe Aokay::SitecatRequest, "#find_requests", type: :feature do
     result = Aokay::SitecatRequest.last
     expect(result[:pageName]).to eq "myPageName"
   end
+
+  it "defines equality" do
+    visit '/'
+    url = "http://metrics.sky.com"
+    make_ajax_req url
+
+    loop until Aokay::SitecatRequest.last.responded?
+
+    first_instance = Aokay::SitecatRequest.last
+    second_instance = Aokay::SitecatRequest.last
+
+    expect(first_instance).to eq second_instance
+  end
+
 end
