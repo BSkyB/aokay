@@ -34,4 +34,14 @@ describe Aokay::SitecatRequest, "#find_requests", type: :feature do
     expect(first_instance).to eq second_instance
   end
 
+  it "works as a hash key" do
+    visit '/'
+    url = "http://metrics.sky.com"
+    make_ajax_req url
+
+    first_instance = Aokay::SitecatRequest.last
+    second_instance = Aokay::SitecatRequest.last
+
+    expect({first_instance => 1, second_instance => 1}.size).to eq 1
+  end
 end

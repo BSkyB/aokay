@@ -12,8 +12,14 @@ module Aokay
     # We say that requests are equal if their parameters are equal.
     # This is open to change.
     def ==(other)
-      self.params == other.params
+      self.class == other.class && self.params == other.params
     end
+    alias_method :eql?, :==
+
+    def hash
+      self.class.object_id ^ self.params.hash
+    end
+
 
     class << self
       def network_traffic
