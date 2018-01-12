@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/BSkyB/aokay.svg?branch=master)](https://travis-ci.org/BSkyB/aokay)
-[![Coverage Status](https://coveralls.io/repos/BSkyB/aokay/badge.svg?branch=master)](https://coveralls.io/r/BSkyB/aokay?branch=master)
+[![Build Status](https://travis-ci.org/sky-uk/aokay.svg?branch=master)](https://travis-ci.org/sky-uk/aokay)
+[![Coverage Status](https://coveralls.io/repos/sky-uk/aokay/badge.svg?branch=master)](https://coveralls.io/r/sky-uk/aokay?branch=master)
 
 aokay
 =====
@@ -11,7 +11,7 @@ Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'aokay', :git => 'git@github.com:bskyb/aokay.git', :tag => 'vX.X.X'
+    gem 'aokay', :git => 'git@github.com:sky-uk/aokay.git', :tag => 'vX.X.X'
 
 *Where tag is the latest release*
 
